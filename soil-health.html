@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soil Health Indicators | Lamont Forest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .navbar {
+      background: #2e6b2e;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      top: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .dropdown-content a {
+      color: #2e6b2e;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nav-links > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+    }
+    .image-right {
+      float: right;
+      width: 40%;
+      height: 250px;
+      background-color: #ccc;
+      margin: 0 0 20px 20px;
+      line-height: 250px;
+      text-align: center;
+      font-size: 1.1em;
+      color: #555;
+      border-radius: 8px;
+    }
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .split {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      gap: 20px;
+    }
+    .split .block {
+      flex: 1 1 45%;
+      background-color: #eee;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="navbar">
+    <h1 onclick="window.location.href='index.html'">Lamont Forest Environmental Data</h1>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Introduction</a>
+        <div class="dropdown-content">
+          <a href="intro-history.html">History</a>
+          <a href="intro-establishment.html">Establishment in 2024</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Soil Monitoring</a>
+        <div class="dropdown-content">
+          <a href="soil-carbon.html">Carbon Storage</a>
+          <a href="soil-moisture.html">Moisture</a>
+          <a href="soil-health.html">Health Indicators</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Forest Monitoring</a>
+        <div class="dropdown-content">
+          <a href="forest-tree-rings.html">Tree Rings</a>
+          <a href="forest-allometry.html">Allometric Measures</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Current Projects</a>
+        <div class="dropdown-content">
+          <a href="projects-ssrfp.html">SSRFP</a>
+          <a href="projects-nrcs.html">NRCS</a>
+        </div>
+      </div>
+      <a href="download.html">Download the Data</a>
+      <a href="explore.html">Explore</a>
+      <a href="acknowledgements.html">Acknowledgements</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Soil Health Indicators (DSP4SH)</h2>
+
+    <div class="image-right">[Placeholder: Soil respiration or POXC test]</div>
+    <div class="clearfix">
+      <p>
+        Dynamic Soil Properties (DSPs) are soil characteristics that change over short timescales and are sensitive to factors like vegetation, climate, and land use. In 2024, the Lamont team adopted the NRCS DSP4SH framework to evaluate soil health through measurable indicators. These included permanganate oxidizable carbon (POXC), bulk density, soil respiration, water-stable aggregates (WSA), and enzyme activity—each offering a window into the functioning and resilience of the soil system.
+      </p>
+    </div>
+
+    <p>
+      These indicators were collected using field kits and lab-based methods aligned with national protocols. POXC measures the readily available pool of organic carbon that supports microbial life, while WSA reflects the soil’s structure and resistance to erosion. Bulk density relates to compaction and root penetration, and soil respiration indicates microbial activity and nutrient cycling. All together, these variables offer a multi-dimensional view of how "healthy" the soil is—and how likely it is to store carbon and support forest regeneration.
+    </p>
+
+    <div class="split">
+      <div class="block">
+        <strong>Why DSPs?</strong><br />
+        Unlike static properties like soil texture, DSPs are responsive to management and climate change. Monitoring them helps predict how ecosystems will respond to interventions.
+      </div>
+      <div class="block">
+        <strong>Applications</strong><br />
+        The indicators used at Lamont feed directly into national soil health monitoring, inform digital soil mapping models, and guide forest management strategies based on local conditions.
+      </div>
+    </div>
+  </div>
+</body>
+</html>

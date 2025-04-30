@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamont Forest Data Viewer</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Leaflet & GeoTIFF.js -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/geotiff"></script>
+    <script src="https://unpkg.com/leaflet-geotiff"></script>
+</head>
+
+<body>
+    <h1>Lamont Forest Data Viewer</h1>
+    <p>Select a raster layer to overlay:</p>
+
+    <!-- Layer Toggle Menu -->
+    <div id="layer-menu">
+        <h3>Toggle Layers</h3>
+        <input type="checkbox" id="toggle-aoi" checked> AOI (Aspect) <br>
+        <input type="checkbox" id="toggle-hillshade"> Hillshade <br>
+        <input type="checkbox" id="toggle-carbon"> Soil Carbon <br>
+    </div>
+
+    <!-- Leaflet Map -->
+    <div id="map"></div>
+
+    <!-- Load JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

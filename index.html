@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamont Forest Environmental Data</title>
+    
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- GeoTIFF Plugin -->
+    <script src="https://unpkg.com/georaster"></script>
+    <script src="https://unpkg.com/georaster-layer-for-leaflet"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* General Styling */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+
+        /* Header Navigation */
+        .navbar {
+            background: #2e6b2e; color: white; padding: 10px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .navbar h1 { margin: 0; font-size: 20px; }
+        .nav-links a {
+            color: white; text-decoration: none; margin-left: 15px;
+            font-size: 14px; font-weight: bold;
+        }
+
+        /* Main Content */
+        .container {
+            text-align: center; padding: 20px;
+            max-width: 1000px; margin: 0 auto;
+        }
+
+        #toggle-container {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: black;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000; /* Highest priority */
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        }
+        .navbar {
+        background: #2e6b2e;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        }
+        .navbar h1 {
+        margin: 0;
+        font-size: 20px;
+        cursor: pointer;
+        }
+        .nav-links {
+        display: flex;
+        gap: 15px;
+        }
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+        .dropdown > a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        }
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 200px;
+        z-index: 1;
+        top: 100%;
+        right: 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a {
+        color: #2e6b2e;
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        }
+        .dropdown-content a:hover {
+        background-color: #ddd;
+        color: #2e6b2e;
+        }
+        .dropdown:hover .dropdown-content {
+        display: block;
+        }
+        .nav-links > a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        }
+        .container {
+        padding: 20px;
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        }
+
+        /* Map Styling */
+        #map { height: 500px; width: 90%; margin: 20px auto; border-radius: 8px; }
+
+        /* Layer Toggle Menu */
+        .layer-control {
+            /* position: absolute;
+            top: 100px; right: 20px;
+            background: white; padding: 15px;
+            border-radius: 8px; box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+            font-size: 14px; */
+
+            position: absolute;
+            top: 210px;
+            right: 85px;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 9999; /* Highest priority */
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+        }
+        .layer-control h3 {
+            margin: 0 0 10px; font-size: 16px; font-weight: bold;
+        }
+        .layer-control input { margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1 onclick="window.location.href='index.html'">Lamont Forest Environmental Data</h1>
+        <div class="nav-links">
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Introduction</a>
+            <div class="dropdown-content">
+              <a href="intro-history.html">History</a>
+              <a href="intro-establishment.html">Establishment in 2024</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Soil Monitoring</a>
+            <div class="dropdown-content">
+              <a href="soil-carbon.html">Carbon Storage</a>
+              <a href="soil-moisture.html">Moisture</a>
+              <a href="soil-health.html">Health Indicators</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Forest Monitoring</a>
+            <div class="dropdown-content">
+              <a href="forest-tree-rings.html">Tree Rings</a>
+              <a href="forest-allometry.html">Allometric Measures</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Current Projects</a>
+            <div class="dropdown-content">
+              <a href="projects-ssrfp.html">SSRFP</a>
+              <a href="projects-nrcs.html">NRCS</a>
+            </div>
+          </div>
+          <a href="download.html">Download the Data</a>
+          <a href="explore.html">Explore</a>
+          <a href="acknowledgements.html">Acknowledgements</a>
+        </div>
+      </div>
+
+    <!-- Description -->
+    <div class="container">
+        <h2>Welcome to the Lamont Forest Environmental Site</h2>
+        <p>Explore digital elevation, vegetation, soil health, and more in the beautiful Lamont Forest area.</p>
+    </div>
+
+    <!-- Leaflet Map -->
+    <div id="map"></div>
+
+    <!-- Toggle Layers -->
+    <div class="layer-control">
+        <h3>Toggle Layers</h3>
+        <label><input type="checkbox" id="aspectLayer"> Aspect</label> <br>
+        <label><input type="checkbox" id="demLayer"> Elevation (DEM)</label> <br>
+        <label><input type="checkbox" id="twiLayer"> TWI (Wetness Index)</label> <br>
+        <label><input type="checkbox" id="hillshadeLayer"> Hillshade</label> <br>
+        <label><input type="checkbox" id="carbonLayer"> Soil Carbon</label> <br>
+        <label><input type="checkbox" id="treeLayer"> NDVI (Vegetation Index)</label>
+        
+    </div>
+
+    <script>
+        // Initialize the map at Lamont Forest, zoom level 19
+        var map = L.map('map').setView([41.001933, -73.907089], 18);
+
+        // Add a base map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add AOI Marker
+        var marker = L.marker([41.001933, -73.907089]).addTo(map)
+        // 41.002333, -73.907389
+            .bindPopup("<b style='font-size:16px;'>Lamont Forest</b><br><span style='font-size:14px;'>New York, USA</span>")
+            .openPopup();
+
+        // Define Image Bounds (manually adjusting size)
+        // var imageBounds = [[41.0035, -73.9090], [41.0010, -73.9058]]; // Adjust as needed
+        // var imageBounds = [[41.0024, -73.9076], [41.0015, -73.9066]];
+
+        // var imageBounds = [[41.0025, -73.9078], [41.00148, -73.9064]];
+        var imageBounds = [[41.0025, -73.90783], [41.00148, -73.90637]];
+
+
+
+        // PNG Layers
+        var aspectLayer = L.imageOverlay("final_data/aspect.png", imageBounds);
+        var hillshadeLayer = L.imageOverlay("final_data/hillshade.png", imageBounds);
+        var carbonLayer = L.imageOverlay("final_data/carbon.png", imageBounds);
+        var twiLayer = L.imageOverlay("final_data/twi.png", imageBounds);
+
+        // Toggle Layer Functions
+        document.getElementById("aspectLayer").addEventListener("change", function () {
+            this.checked ? map.addLayer(aspectLayer) : map.removeLayer(aspectLayer);
+        });
+
+        document.getElementById("hillshadeLayer").addEventListener("change", function () {
+            this.checked ? map.addLayer(hillshadeLayer) : map.removeLayer(hillshadeLayer);
+        });
+
+        document.getElementById("carbonLayer").addEventListener("change", function () {
+            this.checked ? map.addLayer(carbonLayer) : map.removeLayer(carbonLayer);
+        });
+
+        document.getElementById("twiLayer").addEventListener("change", function () {
+            this.checked ? map.addLayer(twiLayer) : map.removeLayer(twiLayer);
+        });
+
+
+</script>
+
+</body>
+</html>

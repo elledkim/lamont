@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>History | Lamont Forest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .navbar {
+      background: #2e6b2e;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      top: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .dropdown-content a {
+      color: #2e6b2e;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nav-links > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+    }
+    .image-placeholder {
+      background-color: #ccc;
+      width: 100%;
+      height: 300px;
+      text-align: center;
+      line-height: 300px;
+      font-size: 1.2em;
+      color: #555;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h1 onclick="window.location.href='index.html'">Lamont Forest Environmental Data</h1>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Introduction</a>
+        <div class="dropdown-content">
+          <a href="intro-history.html">History</a>
+          <a href="intro-establishment.html">Establishment in 2024</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Soil Monitoring</a>
+        <div class="dropdown-content">
+          <a href="soil-carbon.html">Carbon Storage</a>
+          <a href="soil-moisture.html">Moisture</a>
+          <a href="soil-health.html">Health Indicators</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Forest Monitoring</a>
+        <div class="dropdown-content">
+          <a href="forest-tree-rings.html">Tree Rings</a>
+          <a href="forest-allometry.html">Allometric Measures</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" onclick="return false;">Current Projects</a>
+        <div class="dropdown-content">
+          <a href="projects-ssrfp.html">SSRFP</a>
+          <a href="projects-nrcs.html">NRCS</a>
+        </div>
+      </div>
+      <a href="download.html">Download the Data</a>
+      <a href="explore.html">Explore</a>
+      <a href="acknowledgements.html">Acknowledgements</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>History of the Lamont Sanctuary Forest</h2>
+
+    <p>
+      The Lamont Sanctuary Forest (LSF), located on the Lamont-Doherty Earth Observatory campus in Palisades, New York, is a landscape layered with both ecological richness and historical memory. Originally cleared for agriculture in the 1800s, the land was once intensively farmed and altered by human use. As the economic relevance of small-scale farming declined in the early 20th century, the site was gradually abandoned, allowing ecological succession to take hold. Over time, what was once cropland began to reforest, giving rise to a diverse hardwood ecosystem dominated by oak, hickory, maple, and beech trees.
+    </p>
+
+    <div class="image-placeholder">[Placeholder: Historical aerial or cropland map]</div>
+
+    <p>
+      By the 1980s, Columbia University researchers recognized the value of this naturally regenerating forest for long-term ecological study. Permanent forest monitoring plots were established to track tree growth, mortality, canopy dynamics, and biodiversity. These plots have contributed to national and global research initiatives like the Smithsonian ForestGEO network. The forest now serves as both a site of ecological restoration and a living archive of past land use, offering insights into how ecosystems recover over decades following agricultural disturbance.
+    </p>
+
+    <div class="image-placeholder">[Placeholder: Early monitoring plots or tree species photo]</div>
+
+    <p>
+      What sets the Lamont Sanctuary Forest apart is its ability to simultaneously reveal the legacy of human impact and the resilience of nature. The soils, still bearing the imprint of past tilling and nutrient depletion, provide a unique testbed for studying how forest ecosystems rebuild their function and carbon storage capacity. As one of the few long-term forest research plots near a major metropolitan area, LSF holds increasing importance for studying environmental recovery, carbon cycling, and climate change mitigation in temperate hardwood systems.
+    </p>
+  </div>
+</body>
+</html>
