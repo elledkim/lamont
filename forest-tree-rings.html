@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tree Ring Lab | Lamont Forest</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .navbar {
+      background: #2e6b2e;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      top: 100%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .dropdown-content a {
+      color: #2e6b2e;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .nav-links > a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+    }
+    .image-left {
+        display: block;
+  width: 40%;
+  max-width: 1000px;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .image-center {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1 onclick="window.location.href='index.html'">Research & Education at Lamont Sanctuary Forest</h1>
+        <div class="nav-links">
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Introduction</a>
+            <div class="dropdown-content">
+              <a href="intro-history.html">History</a>
+              <a href="intro-establishment.html">Establishment in 2024</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Soil Monitoring</a>
+            <div class="dropdown-content">
+              <a href="soil-carbon.html">Carbon Storage</a>
+              <a href="soil-moisture.html">Moisture</a>
+              <a href="soil-health.html">Health Indicators</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Forest Monitoring</a>
+            <div class="dropdown-content">
+              <a href="forest-tree-rings.html">Tree Rings</a>
+              <a href="forest-allometry.html">Allometric Measures</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="#" onclick="return false;">Current Projects</a>
+            <div class="dropdown-content">
+              <a href="projects-ssrfp.html">SSFRP</a>
+              <a href="projects-nrcs.html">NRCS</a>
+            </div>
+          </div>
+          <a href="download.html">Download the Data</a>
+          <a href="explore.html">Explore</a>
+          <a href="acknowledgements.html">Acknowledgements</a>
+        </div>
+      </div>
+
+  <div class="container">
+    <h2>Tree Ring Lab at Lamont Sanctuary Forest</h2>
+    <img src="treering.png" alt="TreeRing" class="image-left">
+
+    <div class="clearfix">
+      <p>
+        The Lamont Sanctuary Forest is a living laboratory where long-term monitoring of forest health and structure has been ongoing since the 1980s. Researchers at Columbia University have established permanent monitoring plots to track changes in tree growth, mortality, species composition, and canopy structure. These plots provide invaluable insights into how northeastern forests recover from historical land use and respond to climate change.
+      </p>
+    </div>
+    <p>
+      Recent efforts have focused on expanding forest monitoring to integrate both aboveground and belowground measurements, including soil carbon dynamics, tree physiology, and ecosystem fluxes. Dendrometer data from multiple trees captures daily changes in stem diameter, providing high-resolution information on tree growth patterns and responses to environmental stressors.
+    </p>
+    <p>
+      The dataset includes metrics like diameter at breast height (DBH), tree height, species identification, and approximate age (based on coring or estimates from local records). This integrated monitoring approach supports a deeper understanding of forest carbon dynamics and informs sustainable forest management.
+    </p>
+    <p>
+      For detailed information on individual tree measurements, visit our <a href="forest-allometry.html">Allometric Measures</a> page.
+    </p>
+  </div>
+</body>
+</html>

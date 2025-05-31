@@ -85,17 +85,41 @@
       text-align: center;
     }
     .image-placeholder {
+      /* display: block;
       background-color: #ccc;
-      width: 100%;
+      width: 30%;
+      max-width: 1000px;
       height: 180px;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-bottom: 10px;
       line-height: 180px;
-      color: #666;
+      color: #666; */
+
+      display: block;
+  width: 30%;
+  max-width: 1000px;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 8px;
+  line-height: 180px;
+  background-color: #ccc;
+  color: #666
     }
     h2 {
       color: #2e6b2e;
     }
+
+    .image-center {
+  display: block;
+  width: 30%;
+  max-width: 1000px;
+  height: auto;
+  margin: 30px auto;
+  border-radius: 8px;
+  line-height: 180px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
   </style>
 </head>
 <body>
@@ -126,7 +150,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <a href="#" onclick="return false;">>Current Projects</a>
+        <a href="#" onclick="return false;">Current Projects</a>
         <div class="dropdown-content">
           <a href="projects-ssrfp.html">SSRFP</a>
           <a href="projects-nrcs.html">NRCS</a>
@@ -146,23 +170,23 @@
 
     <div class="team-grid">
         <div class="member">
-          <div class="image-placeholder">[Placeholder: Yushu]</div>
+          <img src="yushu.png" alt="Yushu" class="image-center">
           <strong>Dr. Yushu Xia</strong><br />
           Assistant Research Professor,  Lamont-Doherty Earth Observatory
         <div class="member">
-          <div class="image-placeholder">[Placeholder: David]</div>
+          <img src="david.png" alt="Yushu" class="image-center">
           <strong>Dr. David Goldberg</strong><br />
           Faculty Advisor, Lamont-Doherty Earth Observatory
         </div>
 
         <div class="member">
-          <div class="image-placeholder">[Placeholder: David]</div>
+          <img src="ben.png" alt="Yushu" class="image-center">
           <strong>Dr. Ben Bostick</strong><br />
           Research Professor, Lamont-Doherty Earth Observatory
         </div>
 
         <div class="member">
-          <div class="image-placeholder">[Placeholder: David]</div>
+          <img src="brendan.png" alt="Yushu" class="image-center">
           <strong>Dr. Brendan Buckley</strong><br />
           Research Professor, Lamont-Doherty Earth Observatory
         </div>
@@ -178,8 +202,8 @@
           Undergraduate Researcher, Columbia University
         </div>
         <div class="member">
-          <div class="image-placeholder">[Placeholder: Danielle]</div>
-          <strong>Danielle Kim</strong><br />
+          <img src="danielle.png" alt="Yushu" class="image-center">
+          <strong>Danielle (Elle) Kim</strong><br />
           High School Researcher & Website Developer
         </div>
       </div>

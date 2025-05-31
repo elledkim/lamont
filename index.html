@@ -238,7 +238,7 @@
         // PNG Layers
         var aspectLayer = L.imageOverlay("aspect.png", imageBounds);
         var hillshadeLayer = L.imageOverlay("hillshade.png", imageBounds);
-        var carbonLayer = L.imageOverlay("]carbon.png", imageBounds);
+        var carbonLayer = L.imageOverlay("carbon.png", imageBounds);
         var twiLayer = L.imageOverlay("twi.png", imageBounds);
 
         // Toggle Layer Functions
@@ -257,6 +257,120 @@
         document.getElementById("twiLayer").addEventListener("change", function () {
             this.checked ? map.addLayer(twiLayer) : map.removeLayer(twiLayer);
         });
+
+        // Add a scale bar container
+var scaleBar = L.control({ position: 'bottomleft' });
+
+scaleBar.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = `
+        <div id="gradient-bar" style="
+            width: 200px;
+            height: 20px;
+            background: linear-gradient(to right, black, red);
+            border: 1px solid #333;
+            margin-bottom: 4px;
+            display: none;">
+        </div>
+        <div id="gradient-labels" style="
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+            font-size: 12px;
+            display: none;">
+            <span id="min-label">0</span>
+            <span id="max-label">100</span>
+        </div>
+    `;
+    return div;
+};
+scaleBar.addTo(map);
+
+// Function to update the scale bar values
+function updateScaleBar(layerName) {
+    var gradientBar = document.getElementById("gradient-bar");
+    var gradientLabels = document.getElementById("gradient-labels");
+    var minLabel = document.getElementById("min-label");
+    var maxLabel = document.getElementById("max-label");
+
+    if (layerName) {
+        gradientBar.style.display = "block";
+        gradientLabels.style.display = "flex";
+
+        switch(layerName) {
+            case "hillshade":
+                gradientBar.style.background = "linear-gradient(to right, black, red)";
+                minLabel.textContent = "1";
+                maxLabel.textContent = "240";
+                break;
+            case "aspect":
+                gradientBar.style.background = "linear-gradient(to right, black, red)";
+                minLabel.textContent = "55.2°";
+                maxLabel.textContent = "331°";
+                break;
+            case "carbon":
+                gradientBar.style.background = "linear-gradient(to right, black, red)";
+                minLabel.textContent = "42.1 kg/m²";
+                maxLabel.textContent = "227.8 kg/m²";
+                break;
+            case "twi":
+                gradientBar.style.background = "linear-gradient(to right, black, red)";
+                minLabel.textContent = "-1.35";
+                maxLabel.textContent = "4.72";
+                break;
+            default:
+                gradientBar.style.display = "none";
+                gradientLabels.style.display = "none";
+        }
+    } else {
+        gradientBar.style.display = "none";
+        gradientLabels.style.display = "none";
+    }
+}
+
+// Track active layers
+var activeLayer = null;
+
+// Listen to layer toggles
+document.getElementById("hillshadeLayer").addEventListener("change", function () {
+    if (this.checked) {
+        map.addLayer(hillshadeLayer);
+        updateScaleBar("hillshade");
+    } else {
+        map.removeLayer(hillshadeLayer);
+        updateScaleBar(null);
+    }
+});
+
+document.getElementById("aspectLayer").addEventListener("change", function () {
+    if (this.checked) {
+        map.addLayer(aspectLayer);
+        updateScaleBar("aspect");
+    } else {
+        map.removeLayer(aspectLayer);
+        updateScaleBar(null);
+    }
+});
+
+document.getElementById("carbonLayer").addEventListener("change", function () {
+    if (this.checked) {
+        map.addLayer(carbonLayer);
+        updateScaleBar("carbon");
+    } else {
+        map.removeLayer(carbonLayer);
+        updateScaleBar(null);
+    }
+});
+
+document.getElementById("twiLayer").addEventListener("change", function () {
+    if (this.checked) {
+        map.addLayer(twiLayer);
+        updateScaleBar("twi");
+    } else {
+        map.removeLayer(twiLayer);
+        updateScaleBar(null);
+    }
+});
 
 
 </script>
