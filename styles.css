@@ -8,6 +8,16 @@ body {
     background-color: #f4f4f4;
 }
 
+.image-center {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  }
+  
 .navbar {
     background: #2e6b2e;
     color: white;
